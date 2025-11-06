@@ -2,6 +2,9 @@ package com.shoppingmall.shoppingmall.entity;
 
 import jakarta.persistence.*;
 
+import java.util.ArrayList;
+import java.util.List;
+
 // Tag가 뭔지 정확히 확인
 
 @Entity
@@ -12,7 +15,10 @@ public class Tag {
 
     private String category;
 
+    @OneToMany(mappedBy = "tag")
+    private List<TaskTag> taskTags = new ArrayList<>();
+
     @ManyToOne
-    private Task task;
+    private Project project;
 
 }

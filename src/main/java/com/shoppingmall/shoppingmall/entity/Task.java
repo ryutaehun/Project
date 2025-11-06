@@ -13,11 +13,13 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    private String name;
+    private String title;
 
-    @Enumerated(EnumType.STRING)
-    private MileStone mileStone;
+    private String content;
 
     @OneToMany(mappedBy = "task")
-    private List<Tag> tags = new ArrayList<>();
+    private List<TaskTag> taskTags = new ArrayList<>();
+
+    @ManyToOne(fetch = FetchType.LAZY)
+    private MileStone mileStone;
 }
