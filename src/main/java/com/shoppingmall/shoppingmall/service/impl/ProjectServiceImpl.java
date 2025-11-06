@@ -14,16 +14,15 @@ import java.util.List;
 @Service
 public class ProjectServiceImpl implements ProjectService {
 
-
     private final ProjectRepository projectRepository;
 
     @Transactional
     @Override
-    public Project create(String name) {
+    public Project create(String name, Long memberId) {
         if(projectRepository.existsByName(name)){
             throw new IllegalStateException("Project(name = " + name + ") already exists.");
         }
-        return projectRepository.save(new Project(name));
+        return projectRepository.save(new Project(name, memberId));
     }
 
     @Transactional
@@ -46,15 +45,15 @@ public class ProjectServiceImpl implements ProjectService {
         }
         projectRepository.deleteByName(name);
     }
-
-    @Transactional
-    @Override
-    public void updateStateByName(String name, State state) {
-        if(!projectRepository.existsByName(name)){
-            throw new IllegalStateException("Project(name = " + name + ") no exists.");
-        }
-        projectRepository.updateStateByName(name, state);
-    }
+//
+//    @Transactional
+//    @Override
+//    public void updateStateByName(String name, State state) {
+//        if(!projectRepository.existsByName(name)){
+//            throw new IllegalStateException("Project(name = " + name + ") no exists.");
+//        }
+//        projectRepository.updateStateByName(name, state);
+//    }
 
 
 }

@@ -1,0 +1,9 @@
+### GET request to example server
+POST localhost:8082/projects
+Content-Type: text/plain
+memberId: 3
+
+taehun
+
+
+###
