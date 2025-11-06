@@ -1,8 +1,9 @@
 package com.shoppingmall.shoppingmall.service;
 
 import com.shoppingmall.shoppingmall.entity.Comment;
+import com.shoppingmall.shoppingmall.entity.Task;
 
 public interface CommentService {
-    Comment create(long memberId, long taskId, String content);
-    void deleteBy
+    Comment create(long memberId, Task task, String content);
+    void deleteComment(long commentId);
 }
