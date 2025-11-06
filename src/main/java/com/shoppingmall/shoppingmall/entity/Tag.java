@@ -15,10 +15,10 @@ public class Tag {
 
     private String category;
 
-    @OneToMany(mappedBy = "tag")
-    private List<TaskTag> taskTags = new ArrayList<>();
-
     @ManyToOne
     private Project project;
+
+    @OneToMany(mappedBy = "tag")
+    private List<TaskTag> taskTags = new ArrayList<>();
 
 }

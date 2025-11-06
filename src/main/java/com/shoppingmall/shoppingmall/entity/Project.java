@@ -20,10 +20,10 @@ public class Project {
     @Enumerated(EnumType.STRING)
     private State state;
 
+    private long adminId;
+
     @OneToMany(mappedBy = "project")
     private List<ProjectMember> projectMember = new ArrayList<>();
-
-    private long adminId;
 
     public Project(String name){
         this.name = name;

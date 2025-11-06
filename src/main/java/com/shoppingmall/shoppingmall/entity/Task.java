@@ -17,9 +17,13 @@ public class Task {
 
     private String content;
 
+    @ManyToOne
+    private Project project;
+
+    @ManyToOne
+    private MileStone mileStone;
+
     @OneToMany(mappedBy = "task")
     private List<TaskTag> taskTags = new ArrayList<>();
 
-    @ManyToOne(fetch = FetchType.LAZY)
-    private MileStone mileStone;
 }

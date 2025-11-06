@@ -1,9 +1,6 @@
 package com.shoppingmall.shoppingmall.entity;
 
-import jakarta.persistence.Entity;
-import jakarta.persistence.GeneratedValue;
-import jakarta.persistence.GenerationType;
-import jakarta.persistence.Id;
+import jakarta.persistence.*;
 import lombok.Getter;
 
 @Entity
@@ -13,9 +10,10 @@ public class Comment {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    private String content;
+
     private long memberId;
 
-    private long taskId;
-
-    private String content;
+    @ManyToOne
+    private Task task;
 }
