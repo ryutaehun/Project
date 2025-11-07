@@ -2,8 +2,26 @@
 ### task create
 POST http://localhost:8082/api/projects/1/tasks
 Content-Type: application/json
+Accept: application/json
 
 {
-  "title": "taskTitle2",
-  "content": "content2"
+  "title": "taskTitle5",
+  "content": "content5",
+  "milestoneId": 2,
+  "tagIds": [3]
 }
+
+### 전체 task 조회
+GET http://localhost:8082/api/projects/1/tasks
+Accept: application/json
+
+### 단일 task 조회
+GET http://localhost:8082/api/projects/1/tasks/1
+Accept: application/json
+
+### task 삭제
+DELETE http://localhost:8082/api/projects/1/tasks/4
+
+#### task get (태그, 마일스톤 리스트 가져오기)
+#GET http://localhost:8082/api/projects/1/tasks
+#Accept: application/json

@@ -17,11 +17,11 @@ public class MileStone {
 
     private String name;
 
+    @OneToMany(mappedBy = "mileStone")
+    private List<Task> tasks = new ArrayList<>();
+
     @ManyToOne
     private Project project;
-
-    @OneToMany
-    private List<Task> tasks = new ArrayList<>();
 
     public MileStone(String name){
         this.name = name;

@@ -4,12 +4,13 @@ spring:
   datasource:
     driver-class-name: com.mysql.cj.jdbc.Driver
     url: jdbc:mysql://10.116.64.14:13306/nhn_academy_3
+#    url: jdbc:mysql://220.67.216.14:13306/nhn_academy_3
     username: nhn_academy_3
     password: Jc1?tjnLZWi7LTIH
 
   jpa:
     hibernate:
-      ddl-auto: create
+      ddl-auto: update
     show-sql: true
 
   application:
