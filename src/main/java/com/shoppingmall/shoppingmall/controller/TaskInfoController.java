@@ -14,7 +14,7 @@ import java.util.List;
 
 @RequiredArgsConstructor
 @RestController
-@RequestMapping("/api/projects/{id}/tasks/{taskId}")
+@RequestMapping("/projects/{id}/tasks/{taskId}")
 public class TaskInfoController {
 
     private final TaskInfoService taskInfoService;

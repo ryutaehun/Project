@@ -10,6 +10,13 @@ Accept: application/json
   "tagIds": [4]
 }
 
+###
+POST http://localhost:8082/api/projects/3/members
+Content-Type: application/json
+
+3
+
+
 ### 전체 task 조회
 GET http://localhost:8082/api/projects/1/tasks
 Accept: application/json
