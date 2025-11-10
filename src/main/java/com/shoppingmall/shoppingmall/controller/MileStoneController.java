@@ -1,13 +1,10 @@
 package com.shoppingmall.shoppingmall.controller;
 
-import com.shoppingmall.shoppingmall.dto.mileStone.CreateMileStoneRequest;
 import com.shoppingmall.shoppingmall.dto.mileStone.GetMileStoneResponse;
 import com.shoppingmall.shoppingmall.dto.mileStone.MileStoneRequest;
-import com.shoppingmall.shoppingmall.entity.MileStone;
 import com.shoppingmall.shoppingmall.service.MileStoneService;
 import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
-import lombok.Setter;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 

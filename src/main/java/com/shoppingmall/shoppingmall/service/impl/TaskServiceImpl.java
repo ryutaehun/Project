@@ -108,8 +108,8 @@ public class TaskServiceImpl implements TaskService {
         Task task = getTask(projectId, taskId);
 
         // 수정
-        task.setTitle(request.getTitle());
-        task.setContent(request.getContent());
+        task.setTitle(request.getTaskTitle());
+        task.setContent(request.getTaskContent());
 
        if(request.getMilestoneIdList() != null){
            MileStone mileStone = mileStoneRepository.findByIdAndProjectId(request.getMilestoneIdList(),projectId);
@@ -122,9 +122,9 @@ public class TaskServiceImpl implements TaskService {
        }
 
         task.getTaskTags().clear();
-        if (!request.getTagIds().isEmpty()) {
-            List<Tag> tags = tagRepository.findAllByIdInAndProjectId(request.getTagIds(), projectId);
-            if(tags.size() != request.getTagIds().size()){
+        if (!request.getTagIdList().isEmpty()) {
+            List<Tag> tags = tagRepository.findAllByIdInAndProjectId(request.getTagIdList(), projectId);
+            if(tags.size() != request.getTagIdList().size()){
                 throw new InvalidRequestException(
                         "ProjectId: " + projectId + "에 존재하지 않는 태그가 포함되어 있습니다."
                 );
