@@ -3,9 +3,7 @@ package com.shoppingmall.shoppingmall.service.impl;
 import com.shoppingmall.shoppingmall.dto.tag.CreateTagRequest;
 import com.shoppingmall.shoppingmall.entity.Project;
 import com.shoppingmall.shoppingmall.entity.Tag;
-import com.shoppingmall.shoppingmall.exception.already.AlreadyExistException;
 import com.shoppingmall.shoppingmall.exception.already.TagAlreadyExistException;
-import com.shoppingmall.shoppingmall.exception.notfound.NotFoundException;
 import com.shoppingmall.shoppingmall.exception.notfound.ProjectNotFoundException;
 import com.shoppingmall.shoppingmall.exception.notfound.TagNotFoundException;
 import com.shoppingmall.shoppingmall.repository.ProjectRepository;
@@ -23,6 +21,7 @@ public class TagServiceImpl implements TagService {
     private final ProjectRepository projectRepository;
     private final TagRepository tagRepository;
 
+    @Transactional
     @Override
     public Tag create(long projectId, CreateTagRequest createTagRequest) {
         Project project = projectRepository.findById(projectId);
@@ -37,6 +36,7 @@ public class TagServiceImpl implements TagService {
         return tagRepository.save(tag);
     }
 
+    @Transactional(readOnly = true)
     @Override
     public List<Tag> getTags(Long projectId) {
         return tagRepository.findAllByProjectId(projectId);

@@ -11,6 +11,7 @@ import com.shoppingmall.shoppingmall.repository.TaskTagRepository;
 import com.shoppingmall.shoppingmall.service.TaskInfoService;
 import lombok.RequiredArgsConstructor;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 import java.util.List;
 
@@ -22,11 +23,13 @@ public class TaskInfoServiceImpl implements TaskInfoService {
     private final TaskTagRepository taskTagRepository;
     private final CommentRepository commentRepository;
 
+    @Transactional(readOnly = true)
     @Override
     public List<TaskTag> getTaskTags(Long projectId, Long taskId) {
         return taskTagRepository.findAllByTaskId(taskId);
     }
 
+    @Transactional(readOnly = true)
     @Override
     public MileStone getTaskMileStone(Long projectId, long taskId) {
         Task task = taskRepository.findById(taskId);
@@ -34,6 +37,7 @@ public class TaskInfoServiceImpl implements TaskInfoService {
         return task.getMileStone();
     }
 
+    @Transactional(readOnly = true)
     @Override
     public List<Long> getTaskComments(Long projectId, Long taskId) {
         List<Comment> comments = commentRepository.findAllByTaskId(taskId);

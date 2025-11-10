@@ -36,7 +36,7 @@ public class TagController {
     @PutMapping("/{projectId}/tags/{tagId}")
     public ResponseEntity<Long> update(@PathVariable long projectId,
                            @PathVariable long tagId,
-                           @RequestBody CreateTagRequest updatedTag) {
+                           @Valid @RequestBody CreateTagRequest updatedTag) {
         tagService.updateTag(projectId, tagId, updatedTag);
 
         return ResponseEntity.ok().body(projectId);

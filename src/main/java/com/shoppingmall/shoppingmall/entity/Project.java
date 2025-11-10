@@ -1,6 +1,7 @@
 package com.shoppingmall.shoppingmall.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.Getter;
 import lombok.NoArgsConstructor;
 
@@ -15,11 +16,14 @@ public class Project {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
+    @Column(length = 50, nullable = false)
     private String projectName;
 
+    @NotNull
     @Enumerated(EnumType.STRING)
     private State state;
 
+    @NotNull
     private Long adminId;
 
     @OneToMany(mappedBy = "project", cascade = CascadeType.ALL)

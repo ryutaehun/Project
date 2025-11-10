@@ -2,6 +2,7 @@ package com.shoppingmall.shoppingmall.controller;
 
 import com.shoppingmall.shoppingmall.dto.comment.CommentRequest;
 import com.shoppingmall.shoppingmall.service.CommentService;
+import jakarta.validation.Valid;
 import lombok.RequiredArgsConstructor;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
@@ -17,7 +18,7 @@ public class CommentController {
     public ResponseEntity<Long> register(@PathVariable Long projectId,
                                             @PathVariable Long taskId,
                                             @RequestHeader("memberId") Long memberId,
-                                            @RequestBody CommentRequest createCommentRequest){
+                                            @Valid @RequestBody CommentRequest createCommentRequest){
         commentService.create(memberId, taskId, createCommentRequest.getCommentContent());
         return ResponseEntity.ok().body(taskId);
     }
@@ -27,7 +28,7 @@ public class CommentController {
                                        @PathVariable Long taskId,
                                        @PathVariable Long commentId,
                                        @RequestHeader("memberId") Long memberId,
-                                       @RequestBody CommentRequest commentRequest
+                                       @Valid @RequestBody CommentRequest commentRequest
                                        ){
         commentService.update(memberId, taskId, commentId, commentRequest.getCommentContent());
         return ResponseEntity.ok().body(projectId);

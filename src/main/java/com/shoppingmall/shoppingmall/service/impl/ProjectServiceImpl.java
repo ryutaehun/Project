@@ -74,7 +74,7 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     // 해당 멤버가 들어가 있는 Project 목록을 조회
-    @Transactional
+    @Transactional(readOnly = true)
     @Override
     public List<Project> getProjectsByMemberId(Long memberId){
         List<Project> projectList = projectRepository.findProjectsByMemberId(memberId);
