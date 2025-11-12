@@ -17,7 +17,7 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(length = 53, nullable = false)
+    @Column(length = 54, nullable = false)
     private String title;
 
     @Lob
