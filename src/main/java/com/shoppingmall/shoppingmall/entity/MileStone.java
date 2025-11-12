@@ -18,7 +18,7 @@ public class MileStone {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(length = 21, nullable = false)
+    @Column(length = 23, nullable = false)
     private String name;
 
     @OneToMany(mappedBy = "mileStone", cascade = CascadeType.ALL)
