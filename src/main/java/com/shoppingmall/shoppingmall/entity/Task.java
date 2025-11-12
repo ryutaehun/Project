@@ -17,12 +17,19 @@ public class Task {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     private long id;
 
-    @Column(length = 51, nullable = false)
+    @Column(length = 53, nullable = false)
     private String title;
 
     @Lob
     @Column(nullable = false)
     private String content;
+
+    /**
+     * SSH_ID  : be12-team5
+     * SSH_IP  : s2.java21.net
+     * SSH_KEY : 7Z(rQe48hSvbYpdw
+     * SSH_PORT : 8822
+     */
 
     @ManyToOne
     @JoinColumn(name = "project_id", nullable = false)
